@@ -1,0 +1,15 @@
+Question 2:
+file:///Users/cmdb/qbb2015/day1/SRR072893_fastqc.html 
+
+Quesetion 3:
+/Users/cmdb/qbb2015/day1 $ hisat -p 4 BDGP6 SRR072893.fastq -S mappedread.sam
+
+Question 4:
+/Users/cmdb/qbb2015/day1 $ samtools view -bS mappedread.sam > mappedread.bam 
+
+/Users/cmdb/qbb2015/day1 $ samtools sort mappedread.bam out.mappedreadssorted
+
+/Users/cmdb/qbb2015/day1 $ samtools index out.mappedreadssorted.bam 
+
+Question 5:
+/Users/cmdb/qbb2015/day1 $ stringtie out.mappedreadssorted.bam -p 4 -e -G BDGP6.Ensembl.81.gtf -o stringtieoutput -B 

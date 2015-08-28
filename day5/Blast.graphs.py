@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import sys 
 
+""""
 Score = []
 for line in open( sys.argv[1] ):
     fields = line.split()
@@ -23,3 +24,23 @@ plt.ylabel('Score')
 plt.title('Alignment Scores')
 plt.xlim(0, 200)
 plt.savefig("score.png")
+"""
+
+eVal = []
+for line in open( sys.argv[1] ):
+    fields = line.split()
+    name = fields[1]
+    rat_ident = float( fields[2] )
+    rat_gap = float( fields[5] )
+    score = float( fields[11] )
+    evalue = float( fields[10] )
+    eVal.append(evalue)
+
+
+plt.figure()
+plt.hist(eVal, 75)
+plt.xlabel('Alignment')
+plt.ylabel('evalue')
+plt.title('Alignment Scores')
+plt.xlim(0, 10)
+plt.savefig("eval.png")
